@@ -1,0 +1,86 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>Regex Matching Results</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap">
+
+</head>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f5f5;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2b2b2b;
+        margin-top: 20px;
+    }
+
+    p {
+        color: #565656;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 16px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+        color: #4CAF50;
+        /* Green link color */
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background-color: #ffffff;
+        border: 2px solid #af4ca8;
+        border-radius: 8px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    a:hover {
+        background-color: #ac4caf;
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <h1>Regex Matching Results</h1>
+
+    <p>Test String: {{ test_string }}</p>
+    <p>Regex Pattern: {{ regex_pattern }}</p>
+
+    {% if matched_strings %}
+    <h2>Matches:</h2>
+    <ul>
+        {% for match in matched_strings %}
+        <li>{{ match }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No matches found.</p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+
+</html>
